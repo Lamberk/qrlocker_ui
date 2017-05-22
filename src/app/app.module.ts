@@ -34,9 +34,9 @@ import {QrComponent} from './qr/qr.component';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
-import {AuthService} from './login/auth/auth.service';
+import {AuthService} from './auth/auth.service';
 import {TaskService} from './task/task.service';
-import {AuthModule} from './login/auth/auth.module';
+import {AuthModule} from './auth/auth.module';
 import {QrService} from './qr/qr.service';
 
 // Application wide providers

@@ -3,10 +3,10 @@ import {
   OnInit
 } from '@angular/core';
 
-import {AuthService} from './auth/auth.service';
+import {AuthService} from '../auth/auth.service';
 // import {NgForm} from '@angular/forms/src/forms';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from './auth/auth.model';
+import {User} from '../auth/auth.model';
 import {Router} from "@angular/router";
 
 @Component({

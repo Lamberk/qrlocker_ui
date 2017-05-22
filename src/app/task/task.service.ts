@@ -12,7 +12,7 @@ import {Task} from './task.model';
 @Injectable()
 export class TaskService {
   public tasks: any;
-  private tasksUrl = 'http://138.68.82.110/tasks/';
+  private tasksUrl = 'https://138.68.82.110/tasks/';
 
   constructor(private http: AuthHttp,
               // public tasks: Task[]

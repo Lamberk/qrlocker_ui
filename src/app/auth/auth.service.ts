@@ -6,7 +6,7 @@ import {tokenNotExpired} from "angular2-jwt";
 
 @Injectable()
 export class AuthService {
-  private authUrl = 'http://138.68.82.110/api-token-auth/';
+  private authUrl = 'https://138.68.82.110/api-token-auth/';
 
   constructor(private http: Http, private router: Router) {
   }
