@@ -4,7 +4,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {AppState} from './app.service';
-import {AuthService} from "./auth/auth.service";
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app',
@@ -19,10 +19,13 @@ export class AppComponent implements OnInit {
               private authService: AuthService) {
   }
 
-  public ngOnInit() {
+  public ngOnInit() {}
+
+  public logout() {
+    this.authService.logout();
   }
 
-  public logout(){
-    this.authService.logout();
+  public isLoggin() {
+    return this.authService.tokenNotExpired();
   }
 }

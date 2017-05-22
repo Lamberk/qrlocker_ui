@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, RequestOptions, Response} from '@angular/http';
 import {Headers} from '@angular/http';
-import {Router} from "@angular/router";
-import {tokenNotExpired} from "angular2-jwt";
+import {Router} from '@angular/router';
+import {JwtHelper, tokenNotExpired} from 'angular2-jwt';
 
 @Injectable()
 export class AuthService {
@@ -15,8 +15,7 @@ export class AuthService {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers}); // Create a request option
     let bodyString = JSON.stringify(user);
-    this.http.post(this.authUrl, bodyString, options)
-      .subscribe((t) => sessionStorage.token = t.json().token);
+    return this.http.post(this.authUrl, bodyString, options);
   }
 
   public logout() {
@@ -24,7 +23,9 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  public loggedIn() {
-    return tokenNotExpired();
+  public tokenNotExpired() {
+    let token = sessionStorage.getItem('token');
+    let jwtHelper = new JwtHelper();
+    return token != null && !jwtHelper.isTokenExpired(token);
   }
 }

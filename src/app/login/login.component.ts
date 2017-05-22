@@ -27,11 +27,12 @@ export class LoginComponent implements OnInit {
 
   public ngOnInit() {
   }
-  public onSubmit(value: string): void {
-    console.log('you submitted value: ', value);
-  }
-  private auth(value: string): void {
-    this.authService.auth(value);
-    this.router.navigate(['/task']);
+
+  public auth(value: string): void {
+    this.authService.auth(value)
+      .subscribe((t) => {
+        sessionStorage.token = t.json().token;
+        this.router.navigate(['/qr']);
+      });
   }
 }
