@@ -1,0 +1,6 @@
+<ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+  <li *ngFor="let task of tasks">
+    <div class="collapsible-header">{{ task.title }}</div>
+    <div class="collapsible-body"><span>{{ task.text }}</span></div>
+  </li>
+</ul>
